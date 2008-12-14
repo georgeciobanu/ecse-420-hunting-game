@@ -1,0 +1,51 @@
+﻿<Window x:Class="TheCoolTool.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="462" Width="387" Loaded="Window_Loaded" Closing="Window_Closing">
+
+    <Window.Resources>
+        <Style x:Key="Wolf" TargetType="{x:Type Ellipse}">
+            <Setter Property="Opacity" Value="{Binding Path=IsAlive}" />
+            <Setter Property="Fill" >
+                <Setter.Value>
+                    <RadialGradientBrush>
+                        <RadialGradientBrush.GradientStops>
+                            <GradientStop Color="White" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="0.1" />
+                            <GradientStop Color="DarkRed" Offset="0.9"/>
+                        </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Sheep" TargetType="{x:Type Ellipse}">
+            <Setter Property="Opacity" Value="{Binding Path=IsAlive}" />
+            <Setter Property="Fill" >
+                <Setter.Value>
+                    <RadialGradientBrush>
+                        <RadialGradientBrush.GradientStops>
+                            <GradientStop Color="White" Offset="0.0"/>
+                            <GradientStop Color="Blue" Offset="0.1" />
+                            <GradientStop Color="DarkBlue" Offset="0.9"/>
+                        </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="218*" />
+            <RowDefinition Height="44*" />
+        </Grid.RowDefinitions>
+        <Button Margin="12,6,0,0" Name="Start" Click="button1_Click" Grid.Row="1" HorizontalAlignment="Left" Width="75" Height="24.726" VerticalAlignment="Top">Start</Button>
+        <Grid Name="grid"></Grid>
+        <Button Margin="12,0,0,9" Name="Stop" Click="button2_Click" Grid.Row="1" Height="25.206" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75">Stop</Button>
+        <Button Height="24.726" Margin="0,6,12,0" Name="button1" VerticalAlignment="Top" Grid.Row="1" Click="button1_Click_1" HorizontalAlignment="Right" Width="75">Add Wolf</Button>
+        <Button Height="24.726" Margin="0,0,12,9" Name="button2" VerticalAlignment="Bottom" Grid.Row="1" Click="button2_Click_1" HorizontalAlignment="Right" Width="75">Add Sheep</Button>
+        <Button Height="24.726" Margin="105,6,151,0" Name="button3" VerticalAlignment="Top" Grid.Row="1" Click="button3_Click">Start: Sheep ONLY</Button>
+        <Button Height="24.726" Margin="105,0,151,9" Name="button4" VerticalAlignment="Bottom" Grid.Row="1" Click="button4_Click">Start: Wolf ONLY</Button>
+    </Grid>
+</Window>
